@@ -10,6 +10,7 @@ import {
   Row,
   Col
 } from "reactstrap";
+import pict300x300 from '../assets/img/300x300.png';
 // import pictarmyali from '../assets/img/armyali-white.png';
 // import pictbg from '../assets/img/bg.jpg';
 // import Jumbotron from "./jumbotron";
@@ -42,75 +43,60 @@ class mainPage extends Component {
   render() {
     let url = this.props.location.search;
     let params = queryString.parse(url);
-    console.log(params.id);
+    // console.log(params.id);
     return (
-      <div>
-        <Container fluid={true} style={{backgroundColor:"#003060",position:"-webkit-sticky",position:"sticky",top:0,zIndex:998}}>
-          <Row>
-            <Col className="p-2" xs="12" sm="12" md="12" style={{color:"#FFFFFF",fontWeight:"bold"}}>
-              <span className="myFont-title">NAHMTHAISUKI & BBQ</span>
-            </Col>
-          </Row>
-          <Row>
-            <Col className="px-2" xs="12" sm="12" md="12">
-              <div className="lineSeparator-white-1"></div>
-            </Col>
-          </Row>
-          <Row>
-            <Col className="p-2" xs="12" sm="12" md="12" style={{color:"#FFFFFF"}}>
-              <span className="myFont-subtitle">JL K.H WAHID HASYIM No 79-81 Gondangdia, Menteng, Jakarta pusat</span>
-            </Col>
-          </Row>
-          <Row style={{backgroundColor:"#FCFFFD"}}>
-            <Col xs="12" sm="12" md="12" style={{padding:10}}>
-              <div className="card">
-                <div className="card-body" style={{padding:5}}>
-                  <Row style={{fontWeight:"bold"}}>
-                    <Col xs="6" sm="6" md="6" className="text-left">
-                      <span>NOMOR MEJA</span>
-                    </Col>
-                    <Col xs="6" sm="6" md="6" className="text-right">
-                      <span>00123</span>
-                    </Col>
-                  </Row>
-                </div>
-              </div>
-            </Col>
-          </Row>
-          {/* <Row style={{backgroundColor:"#FCFFFD",borderTop:"#000 0.2vh solid",borderBottom:"#000 0.2vh solid",fontWeight:"bold"}}>
-            <Col xs="12" sm="12" md="12" className="p-1 text-center">
-              <span>ORDER LIST</span>
-            </Col>
-          </Row> */}
+      <div style={{backgroundColor:"#F5F5F5"}}>
+        <Container fluid={true} style={{backgroundColor:"#F5F5F5",position:"-webkit-sticky",position:"sticky",top:0,zIndex:998,padding:10}}>
+          <div className="card">
+            <div className="card-body" style={{padding:10}}>
+              <Row>
+                <Col xs="12" sm="12" md="12" style={{color:"#000000"}}>
+                  <span className="myFont-title myFontbold myColor">NAHMTHAISUKI & BBQ</span><br />
+                  <span className="myFont-subtitle myColor">JL K.H WAHID HASYIM No 79-81 Gondangdia, Menteng, Jakarta pusat</span>
+                </Col>
+              </Row>
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-body" style={{padding:5}}>
+              <Row style={{fontWeight:"bold"}}>
+                <Col xs="6" sm="6" md="6" className="text-left">
+                  <span>NOMOR MEJA</span>
+                </Col>
+                <Col xs="6" sm="6" md="6" className="text-right">
+                  <span>00123</span>
+                </Col>
+              </Row>
+            </div>
+          </div>
         </Container>
-        <Container fluid={true} style={{backgroundColor:"#FCFFFD",paddingTop:10,paddingLeft:10,paddingRight:10,paddingBottom:"25vh"}}>
+        <Container fluid={true} style={{backgroundColor:"#F5F5F5",paddingTop:0,paddingLeft:10,paddingRight:10,paddingBottom:"25vh",minHeight:"80vh"}}>
           {this.state.listItem.length > 0 && this.state.listItem.map((listItem,index) =>
             <div className="card" key={index}>
-              <div className="card-body" style={{padding:5}}>
+              <div className="card-body" style={{paddingTop:5,paddingBottom:5}}>
                 <Row>
-                    <Col xs="12" sm="12" md="12" className="text-center">
-                      <span style={{fontWeight:"bold"}}>{listItem}</span>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs="3" sm="3" md="3" className="text-center">
-                      999
-                    </Col>
-                    <Col xs="1" sm="1" md="1" className="text-center">
-                      x
-                    </Col>
-                    <Col xs="4" sm="4" md="4" className="text-center">
-                      999.999.999
-                    </Col>
-                    <Col xs="4" sm="4" md="4" className="text-center">
-                      999.999.999
-                    </Col>
+                  <Col xs="2" sm="2" md="2" style={{padding:2}}>
+                    <img className="portoimage" width="100%" src={pict300x300} alt="pict300x300" />
+                  </Col>
+                  <Col xs="10" sm="10" md="10" style={{padding:2}}>
+                    <Row>
+                      <Col>
+                        <span style={{fontWeight:"bold"}}>{listItem}</span>
+                      </Col>
+                    </Row>
+                    <Row >
+                      <Col>
+                        <div>
+                          <span>xxx.xxx.xxx</span><span> x </span><span>xxx</span><span> = </span><span style={{fontWeight:"bold"}}>xxx.xxx.xxx</span>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Col>
                 </Row>
               </div>
             </div>
           )}
         </Container>
-        {/* <Container style={{backgroundColor:"#F5F5F5",position:"-webkit-sticky",position:"sticky",bottom:0,zIndex:999,padding:10}}> */}
         <Container fluid={true} style={{height:"25vh",backgroundColor:"#F5F5F5",position:"fixed",bottom:0,padding:10}}>
           <div className="card">
             <div className="card-body" style={{padding:10}}>
@@ -151,7 +137,7 @@ class mainPage extends Component {
                 </Col>
               </Row>
               <Row style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-                <Col xs="12" sm="12" md="12" className="p-2">
+                <Col xs="12" sm="12" md="12">
                   <button className="my-btn full-widht" onClick={() => this.props.history.push({ pathname: "/order_page" })}>Tambah order</button>
                 </Col>
               </Row>

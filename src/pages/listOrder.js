@@ -41,29 +41,34 @@ class mainPage extends Component {
   render() {
     let url = this.props.location.search;
     let params = queryString.parse(url);
-    console.log(params.id);
+    // console.log(params.id);
     return (
       <div>
-        <Container fluid={true} style={{backgroundColor:"#FCFFFD",paddingBottom:"28vh",paddingTop:10,paddingLeft:10,paddingRight:10}}>
+        <Container fluid={true} style={{backgroundColor:"#FCFFFD",paddingBottom:"29vh",paddingTop:10,paddingLeft:10,paddingRight:10}}>
           {this.state.testKategory.length > 0 && this.state.testKategory.map((testKategory,index) =>
             <div className="card" key={index}>
-              <div className="card-body" style={{padding:2}}>
+              <div className="card-body">
                 <Row>
-                  <Col>
+                  <Col xs="10" sm="10" md="10">
                     <span style={{fontWeight:"bold"}}>{testKategory}</span>
+                  </Col>
+                  <Col xs="2" sm="2" md="2">
+                      <button className="my-btn-sm"><i className="fa fa-trash" aria-hidden="true"></i></button>
                   </Col>
                 </Row>
                 <Row >
-                  <Col xs="10" sm="10" md="10">
+                  <Col xs="4" sm="4" md="4">
                     <div>
                       <button className="my-btn-sm"><i className="fa fa-minus-square" aria-hidden="true"></i></button>
                       999
                       <button className="my-btn-sm"><i className="fa fa-plus-square" aria-hidden="true"></i></button>
-                      <span> x </span><span>xxx.xxx.xxx</span><span> = </span><span style={{fontWeight:"bold"}}>xxx.xxx.xxx</span>
+                      {/* <span> x </span><span>xxx.xxx.xxx</span><span> = </span><span style={{fontWeight:"bold"}}>xxx.xxx.xxx</span> */}
                     </div>
                   </Col>
-                  <Col xs="2" sm="2" md="2">
-                      <button className="my-btn-sm"><i className="fa fa-trash" aria-hidden="true"></i></button>
+                  <Col xs="8" sm="8" md="8" style={{textAlign:"right"}}>
+                    <div>
+                      <span style={{fontWeight:"bold"}}>xxx.xxx.xxx</span>
+                    </div>
                   </Col>
                 </Row>
               </div>

@@ -43,17 +43,25 @@ class Orderpage extends Component {
   render() {
     let url = this.props.location.search;
     let params = queryString.parse(url);
-    console.log(params.id);
+    // console.log(params.id);
     return (
         <div>
             <Container fluid={true} style={{backgroundColor:"#003060",position:"-webkit-sticky",position:"sticky",top:0,zIndex:998,paddingTop:10,paddingBottom:10}}>
-                <Row>
-                    <Col xs="12" sm="12" md="12" style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-                        <InputGroup>
-                            <Input placeholder="Search" />
-                        </InputGroup>
-                    </Col>
-                </Row>
+              <Row>
+                <Col xs="2" sm="2" md="2" style={{display:"flex",justifyContent:"center",alignItems:"center",color:"#FFFFFF",paddingTop:10,paddingBottom:10}} onClick={() => this.props.history.push({ pathname: "/" })}>
+                  <i className="fa fa-arrow-left" aria-hidden="true"></i>
+                </Col>
+                <Col xs="10" sm="10" md="10" style={{display:"flex",justifyContent:"flex-start",alignItems:"center",color:"#FFFFFF",paddingTop:10,paddingBottom:10}}>
+                  <span style={{fontWeight:"bold"}}>Tambah order</span>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs="12" sm="12" md="12" style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+                  <InputGroup>
+                    <Input placeholder="Search" />
+                  </InputGroup>
+                </Col>
+              </Row>
             </Container>
             <Container fluid={true} style={{backgroundColor:"#FFFFFF",paddingBottom:"8vh"}}>
                 <Row>
@@ -69,7 +77,7 @@ class Orderpage extends Component {
             {/* <Container fluid={true} style={{backgroundColor:"#003060",position:"-webkit-sticky",position:"sticky",bottom:0,zIndex:998,paddingTop:10,paddingBottom:10}}> */}
             <Container fluid={true} style={{height:"8vh",backgroundColor:"#003060",position:"fixed",bottom:0}}>
                 <div style={{width:"100%",height:"100%",display:"flex",justifyContent:"center",alignItems:"center"}}>
-                    <button className="my-btn full-widht" onClick={() => this.props.history.push({ pathname: "/list_order",search: '?id=3030' })}><i className="fa fa-shopping-cart" aria-hidden="true"></i> Pesanan saya</button>
+                    <button className="my-btn full-widht" onClick={() => this.props.history.push({ pathname: "/list_order" })}><i className="fa fa-shopping-cart" aria-hidden="true"></i> Pesanan saya</button>
                 </div>
             </Container>
         </div>
